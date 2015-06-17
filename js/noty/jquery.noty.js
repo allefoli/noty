@@ -344,7 +344,7 @@
         if($.type(instance) === 'object') {
             if(instance.options.dismissQueue) {
                 if(instance.options.maxVisible > 0) {
-                    if($(instance.options.layout.container.selector + ' li').length < instance.options.maxVisible) {
+                    while($(instance.options.layout.container.selector + ' li').not('.i-am-closing-now').length < instance.options.maxVisible) {
                         $.notyRenderer.show($.noty.queue.shift());
                     }
                     else {
